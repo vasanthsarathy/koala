@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "koala"
+version = "0.1.0"
+description = "Knowledge-Oriented Abstract Language Analyzer"
+authors = ["Vasanth Sarathy <vsarathy@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.13"
+click = "^8.1.7"
+jupyter = "^1.0.0"
+pandas = "^2.1.2"
+fastapi = "^0.104.1"
+openai = "^0.28.1"
+langchain = "^0.0.327"
+networkx = "^3.2.1"
+pyvis = "^0.3.2"
+dash-bootstrap-components = "^1.5.0"
+
+
+[tool.poetry.scripts]  
+koala = 'koala.cli:main'
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.3"
+coverage = "^7.3.2"
+pylint = "^3.0.2"
+black = "^23.10.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
