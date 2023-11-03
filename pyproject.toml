@@ -6,7 +6,7 @@ authors = ["Vasanth Sarathy <vsarathy@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = ">=3.9,<3.13"
+python = ">=3.9,<3.13,!=3.9.7"
 click = "^8.1.7"
 jupyter = "^1.0.0"
 pandas = "^2.1.2"
@@ -17,6 +17,7 @@ networkx = "^3.2.1"
 pyvis = "^0.3.2"
 dash-bootstrap-components = "^1.5.0"
 pypdf2 = "^3.0.1"
+streamlit = "^1.28.1"
 
 
 [tool.poetry.scripts]  

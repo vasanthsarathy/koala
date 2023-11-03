@@ -49,14 +49,30 @@ app.layout = html.Div([LINE_BREAK,
 )
 def on_button_click(utterance):
     print(utterance)
-    return utterance+", meow!"
+
+    pigs = []
+    for word in utterance.split(" "):
+        pig = pig_latin(word)
+        pigs.append(pig)
+
+    return "In pig latin: " + " ".join(pigs)
     #graphit()
     #graph_loc = "graph.html"
     #print("graph made")
     #graph = open("graph.html", "r").read()
     #return html.Iframe(srcDoc=graph,style={"height": "1067px", "width": "80%"})
 
-
+def pig_latin(word):
+    word = word.strip().lower()
+    pig_latin =''
+    vowel = ['a','e','i','o','u']
+    for i in range(len(word)):
+        if word[i] in vowel:
+            if i==0:
+                word+="w"
+            pig_latin+=word[i:]+word[0:i]+"ay"
+            break
+    return pig_latin
 
 #########################
 
