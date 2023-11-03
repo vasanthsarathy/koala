@@ -22,8 +22,8 @@ HEADER_ROW = dbc.Row(dbc.Col(heading, width={'size':5, 'offset':1}, align="cente
 # Input row 
 utterance_group = dbc.InputGroup(
     [
-        dbc.Button("Parse", id="parse-button", n_clicks=0),
-        dbc.Input(id="utterance-input", placeholder="type your utterance here and then click Parse"),
+        dbc.InputGroupText("Utterance: "),
+        dbc.Input(id="utterance-input", placeholder="type your utterance here"),
     ]
 )
 INPUT_ROW = dbc.Row(dbc.Col(utterance_group, width={'size':5, 'offset':1}, align="center"))
@@ -45,19 +45,16 @@ app.layout = html.Div([LINE_BREAK,
 ############# CALLBACKS ############################
 @app.callback(
     Output("graph-output", "children"),
-    [Input("parse-button", "n_clicks"),
-     Input("utterance-input", "value")],
+    [Input("utterance-input", "value")],
 )
-def on_button_click(n_clicks, utterance):
-    if n_clicks:
-        print(utterance)
-        graphit()
-        graph_loc = "graph.html"
-        print("graph made")
-        graph = open("graph.html", "r").read()
-        return html.Iframe(srcDoc=graph,style={"height": "1067px", "width": "80%"})
-    else:
-        return ""
+def on_button_click(utterance):
+    print(utterance)
+    return utterance+", meow!"
+    #graphit()
+    #graph_loc = "graph.html"
+    #print("graph made")
+    #graph = open("graph.html", "r").read()
+    #return html.Iframe(srcDoc=graph,style={"height": "1067px", "width": "80%"})
 
 
 
