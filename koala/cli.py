@@ -27,6 +27,18 @@ def cli(ctx, **kwargs):
     click.secho(f"Knowledge-Oriented Abstract Language Analyzer", fg='yellow')
     print(f'-----------------')
 
+@click.command()
+@add_options(shared_options)
+@click.pass_context
+def prepare(ctx, **kwargs):
+    """
+    For preparing a dataset from FrameNet 17 useable for finetuning 
+    """
+    ctx.obj.update(kwargs)
+    import koala.preprocess.prepare
+    prepare.run(ctx.obj)
+
+
 
 @click.command()
 @add_options(shared_options)
